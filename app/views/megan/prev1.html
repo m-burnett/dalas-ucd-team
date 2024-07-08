@@ -7,14 +7,14 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="form" action="/megan/previousrole" method="post">
+    <form class="form" action="/megan/checkanswers" method="post">
       {{ govukInput({
           label: {
-            text: "What month did you join the project?",
+            text: "What was your previous project?",
             classes: "govuk-fieldset__legend--l"
           },
-          id: "month",
-          name: "month"
+          id: "prevproj",
+          name: "prevproj"
         }) }}
 
       {{ govukButton({

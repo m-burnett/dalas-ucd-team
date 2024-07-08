@@ -6,18 +6,17 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
-// Add your routes here
-//do you go by another name
-router.post('/megan/anotherjobquestionAnswer', function(request, response) {
 
-    var anotherjob = request.session.data["anotherjob"];
-    
-    if (anotherjob == "yes" )
-    {
-        response.redirect("/anotherjob")
+
+
+//previous role - Megan
+
+router.post('/megan/previousrole-answer', function(request, response) {
+
+    var previousrole = request.session.data['previousrole']
+    if (previousrole == "Yes"){
+        response.redirect("/megan/prev1")
+    } else {
+        response.redirect("/megan/checkanswers")
     }
-    else
-    {
-        response.redirect("/checkanswers")
-    }
-}) 
+})
