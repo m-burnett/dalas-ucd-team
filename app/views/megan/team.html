@@ -1,0 +1,26 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/megan/join" method="post">
+      {{ govukInput({
+          label: {
+            text: "What team are you part of?",
+            classes: "govuk-fieldset__legend--l"
+          },
+          id: "team",
+          name: "team"
+        }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+      </form>
+      </div></div>
+
+{% endblock %}
