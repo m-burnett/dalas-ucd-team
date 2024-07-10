@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <form class="form" action="/nicole/checkanswers" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "whereDoYouLive",
+  fieldset: {
+    legend: {
+      text: "How long have you worked for Accenture?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "0-2 years",
+      text: "0-2 years"
+    },
+    {
+      value: "2-4 years",
+      text: "2-4 years"
+    },
+    {
+      value: "4-6 years",
+      text: "4-6 years"
+    },
+    {
+      value: "6+ years",
+      text: "6+ years"
+    }
+  ],
+  value: data['whereDoYouLive']
+}) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

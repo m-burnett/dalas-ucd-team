@@ -1,0 +1,103 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Check your answers before sending your application
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Team"
+            },
+            value: {
+              text: data['team']
+            },
+            actions: {
+              items: [
+                {
+                  href: "team",
+                  text: "Change",
+                  visuallyHiddenText: "Your Team"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Date"
+            },
+            value: {text: data['dob-day'] + data['dob-month'] + data['dob-year']
+              
+           
+        
+            },
+
+            
+
+            actions: {
+              items: [
+                {
+                  href: "next",
+                  text: "Change",
+                  visuallyHiddenText: "Date"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Time"
+            },
+            value: {
+              text: data['whereDoYouLive']
+            },
+            actions: {
+              items: [
+                {
+                  href: "next2",
+                  text: "Change",
+                  visuallyHiddenText: "Where do you live"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        Now send your application
+      </h2>
+
+      <p>
+        By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.
+      </p>
+
+      <form action="/nicole/confirmation" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Accept and send"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
