@@ -1,8 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% block pageTitle %}
-  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
-{% endblock %}
+{% set pageName="Home" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -13,7 +11,6 @@
 
 {% block content %}
 <div class="govuk-width-container">
-  <a href="#" class="govuk-back-link">Back</a>
   <main class="govuk-main-wrapper " id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds-from-desktop">
@@ -37,6 +34,9 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['startmonth'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
             </dd>
           </div>
 
