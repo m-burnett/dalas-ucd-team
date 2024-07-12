@@ -20,3 +20,17 @@ router.post('/megan/previousrole-answer', function(request, response) {
         response.redirect("/megan/checkanswers")
     }
 })
+
+
+
+//previous role - Nicole
+
+router.post('/nicole/previousrole-answer', function(request, response) {
+
+    var previousrole = request.session.data['previousrole']
+    if (previousrole == "Yes"){
+        response.redirect("/nicole/previousrole-question")
+    } else {
+        response.redirect("/nicole/checkanswers")
+    }
+})
