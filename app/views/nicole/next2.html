@@ -17,15 +17,15 @@
     <div class="govuk-grid-column-two-thirds">
 
 
-      <form class="form" action="/nicole/checkanswers" method="post">
+      <form class="form" action="/nicole/previousrole" method="post">
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 {{ govukRadios({
-  name: "whereDoYouLive",
+  name: "yourExperience",
   fieldset: {
     legend: {
-      text: "How long have you worked for Accenture?",
+      text: "How many years of experience do you have in UX Design or similar roles?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }

@@ -1,126 +1,89 @@
 {% extends "layouts/main.html" %}
 
-{% block pageTitle %}
-  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
-{% endblock %}
-
-{% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}
-{% endblock %}
+{% set pageName="Home" %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
-
-      <h1 class="govuk-heading-xl">
-        Check your answers before sending your application
-      </h1>
-
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Team"
-            },
-            value: {
-              text: data['team']
-            },
-            actions: {
-              items: [
-                {
-                  href: "team",
-                  text: "Change",
-                  visuallyHiddenText: "Your Team"
-                }
-              ]
-            }
-          }
-          ,
 
 
-          {
-            key: {
-              text: "Previous Role"
-            },
-            value: {
-              text: data['previousrole']
-            },
-            actions: {
-              items: [
-                {
-                  href: "previousrole",
-                  text: "Change",
-                  visuallyHiddenText: "Previous Role"
-                }
-              ]
-            }
-          }
+    <div class="govuk-width-container">
+      <a href="#" class="govuk-back-link">Back</a>
+      <main class="govuk-main-wrapper " id="main-content" role="main">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds-from-desktop">
+            <h1 class="govuk-heading-l">Check your answers before sending your application</h1>
+            <h2 class="govuk-heading-m">Your details</h2>
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
-          
-          ,
-          {
-            key: {
-              text: "Date"
-            },
-            value: {text: data['dob-day'] + data['dob-month'] + data['dob-year']
-              
-        
-            },
 
-            
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Team
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['team'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="team.html">Change<span class="govuk-visually-hidden"> name</span></a>
+                </dd>
+              </div>
 
-            
 
-            actions: {
-              items: [
-                {
-                  href: "next",
-                  text: "Change",
-                  visuallyHiddenText: "Date"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Time"
-            },
-            value: {
-              text: data['whereDoYouLive']
-            },
-            actions: {
-              items: [
-                {
-                  href: "next2",
-                  text: "Change",
-                  visuallyHiddenText: "Where do you live"
-                }
-              ]
-            }
-          }
-        ]
-      }) }}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                 Joined
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['dob-day'] + data['dob-month'] + data['dob-year'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="next.html">Change<span class="govuk-visually-hidden"> date</span></a>
+                </dd>
+              </div>
 
-      <h2 class="govuk-heading-m">
-        Now send your application
-      </h2>
 
-      <p>
-        By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.
-      </p>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Experience
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['yourExperience'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="next2.html">Change<span class="govuk-visually-hidden"> name</span></a>
+                </dd>
+              </div>
 
-      <form action="/nicole/confirmation" method="post" novalidate>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+               Previous Project
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['previousrole'] }}    
+                   {% if data['prev1'] %}  on {{ data['prev1'] }}          {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="previousrole.html">Change<span class="govuk-visually-hidden"> date</span></a>
+                </dd>
+              </div>
 
-        {{ govukButton({
-          text: "Accept and send"
-        }) }}
 
-      </form>
 
+            </dl>
+            <h2 class="govuk-heading-m">Now send your application</h2>
+            <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+            <form action="/nicole/confirmation" method="post" novalidate>
+              <input type="hidden" name="answers-checked" value="true">
+              <button type="submit" class="govuk-button" data-module="govuk-button">
+                Accept and send
+              </button>
+            </form>
+          </div>
+        </div>
+      </main>
     </div>
-  </div>
+
+
+
+
 {% endblock %}
+
