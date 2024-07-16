@@ -20,7 +20,7 @@
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              What team are you part of?
+              Team
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['team'] }}
@@ -31,13 +31,28 @@
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-             What month did you join the project?
+             Joined
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['startmonth'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+           Previous Accenture project
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if (data['previousrole'] == "Yes") %}
+              {{ data['previousrole'] }} on {{ data['prevproj'] }}
+              {% else %}
+              {{ data['previousrole'] }}
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
             </dd>
           </div>
 
