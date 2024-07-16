@@ -9,15 +9,15 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 
 
-//previous role - Megan
+//previous role - Lyndsey
 
-router.post('/megan/previousrole-answer', function(request, response) {
-
+router.post('/lyndsey/previousrole-answer', function(request, response) {
+    
     var previousrole = request.session.data['previousrole']
     if (previousrole == "Yes"){
-        response.redirect("/megan/prev1")
+        response.redirect("/lyndsey/previousrole-question")
     } else {
-        response.redirect("/megan/checkanswers")
+        response.redirect("/lyndsey/checkanswers")
     }
 })
 
