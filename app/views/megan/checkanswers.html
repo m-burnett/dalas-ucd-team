@@ -43,18 +43,10 @@
                 </dt>
                 <dd class="govuk-summary-list__value">
                 
-                  {% if (data['previousrole'] == "Yes") %}
-
-                
-                  {{ data['previousrole'] }} on  {{ data['prevproj'] }}
-                 
-              
+              {% if (data['previousrole'] == "Yes") %}
+              {{ data['previousrole'] }} on  {{ data['prevproj'] }}
               {% else %}
-              
-              
               {{ data['previousrole'] }}
-                 
-              
               {% endif %}
                
                 </dd>
