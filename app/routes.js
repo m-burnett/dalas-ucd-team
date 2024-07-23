@@ -34,3 +34,16 @@ router.post('/nicole/previousrole-answer', function(request, response) {
         response.redirect("/nicole/checkanswers")
     }
 })
+
+
+
+//previous role - Nicole
+router.post('/nicole/previousrole-answer', function(request, response) {
+
+    var previousrole = request.session.data['previousrole']
+    if (previousrole == "Yes"){
+        response.redirect("/nicole/previousproject")
+    } else {
+        response.redirect("/nicole/checkanswers")
+    }
+})
