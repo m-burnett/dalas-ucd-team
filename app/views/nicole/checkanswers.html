@@ -1,103 +1,69 @@
 {% extends "layouts/main.html" %}
 
-{% block pageTitle %}
-  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
-{% endblock %}
-
-{% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}
-{% endblock %}
+{% set pageName="Home" %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-xl">
-        Check your answers before sending your application
-      </h1>
+    
+    <div class="govuk-width-container">
+      <a href="#" class="govuk-back-link">Back</a>
+      <main class="govuk-main-wrapper " id="main-content" role="main">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds-from-desktop">
+            <h1 class="govuk-heading-l">Check your answers before sending your application</h1>
+            <h2 class="govuk-heading-m">Your details</h2>
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Team
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['team'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="team.html">Change<span class="govuk-visually-hidden"> name</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                 Joined
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['month'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="next.html">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+               Previous Project
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['previousrole'] }}    
+                   {% if data['prevproj'] %}  on {{ data['prevproj'] }}          {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="previousproject.html">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+                </dd>
+              </div>
 
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Team"
-            },
-            value: {
-              text: data['team']
-            },
-            actions: {
-              items: [
-                {
-                  href: "team",
-                  text: "Change",
-                  visuallyHiddenText: "Your Team"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Date"
-            },
-            value: {text: data['dob-day'] + data['dob-month'] + data['dob-year']
-              
-           
-        
-            },
+            </dl>
+            <h2 class="govuk-heading-m">Now send your application</h2>
+            <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
 
-            
-
-            actions: {
-              items: [
-                {
-                  href: "next",
-                  text: "Change",
-                  visuallyHiddenText: "Date"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Time"
-            },
-            value: {
-              text: data['whereDoYouLive']
-            },
-            actions: {
-              items: [
-                {
-                  href: "next2",
-                  text: "Change",
-                  visuallyHiddenText: "Where do you live"
-                }
-              ]
-            }
-          }
-        ]
-      }) }}
-
-      <h2 class="govuk-heading-m">
-        Now send your application
-      </h2>
-
-      <p>
-        By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.
-      </p>
-
-      <form action="/nicole/confirmation" method="post" novalidate>
-
-        {{ govukButton({
-          text: "Accept and send"
-        }) }}
-
-      </form>
-
+            <form action="/nicole/confirmation" method="post" novalidate>
+              <input type="hidden" name="answers-checked" value="true">
+              <button type="submit" class="govuk-button" data-module="govuk-button">
+                Accept and send
+              </button>
+            </form>
+          </div>
+        </div>
+      </main>
     </div>
-  </div>
+
+
+
+
 {% endblock %}
