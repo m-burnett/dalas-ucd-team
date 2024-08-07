@@ -1,0 +1,101 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Section",
+        href: "#"
+      },
+      {
+        text: "Subsection"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-xl">Borders and Trade</span>
+      <h1 class="govuk-heading-xl">James Seabright</h1>
+
+      <p class="govuk-body-l">Interaction designer with 3 years experience consulting 
+        and designing for a range of clients ranging from fintech giants 
+        to e-commerce start ups. I'm driven by creative problem solving with 
+        people-centred solutions.</p>
+
+        <p class="govuk-body">Experience using:</p>
+        <ul class="govuk-list govuk-list--bullet">
+        <li>Figma / Sketch / inVision</li>
+        <li>FigJam / Miro / Mural</li>
+        <li>Adobe Creative Suite</li>
+        <li>Google Suite</li>
+        <li>Confluence / Jira / Trello</li>
+        </ul>
+
+        <p class="govuk-body">Previous clients:</p>
+        <ul class="govuk-list govuk-list--bullet">
+        <li>Kindeo</li>
+        <li>Aviva</li>
+        <li>AJ Bell</li>
+        <li>Cintra</li>
+        <li>BNF/BNFC</li>
+        </ul>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "team",
+        isStartButton: true
+      }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+{% endblock %}
