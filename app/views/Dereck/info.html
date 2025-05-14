@@ -1,0 +1,103 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Section",
+        href: "#"
+      },
+      {
+        text: "Subsection"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-xl">Telford Live Services</span>
+      <h1 class="govuk-heading-xl">
+        Dereck Laher
+      </h1>
+
+      <p>Driven by a passion for crafting intuitive and innovative digital experiences. I thrive solving complex user challenges through the application of rigorous process, functional prototyping and elegant interface design.</p>
+
+      <p>Experienced with:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>HTML / CSS / React</li>
+        <li>GOV prototype kit / Design systems</li>
+        <li>Figma / XD / Webflow</li>
+        <li>FigJam / Miro / Mural</li>
+        <li>Google Suite</li>
+        <li>Confluence / Jira</li>
+        <li>Adobe Creative Suite</li>
+        <li>Final cut / Logic pro / Blender</li>
+        </ul>
+
+      <p>Designed for</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Saas Systems</li>
+        <li>Private / Public Sector</li>
+        </ul>
+
+      <p>
+        Tell me about yourself.
+      </p>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "team",
+        isStartButton: true
+      }) }}
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+{% endblock %}
